@@ -138,7 +138,7 @@ window.onload = function (e) {
       } else {
         if (score >= 100) {
           ctx.fillStyle = (new Color("hsl(60, 100, 60)")).rgb.toString();
-          ctx.fillText("超人", cv.width / 2, cv.height / 2 - 144);
+          ctx.fillText("超人になった", cv.width / 2, cv.height / 2 - 144);
         } else if (score >= 80) {
           ctx.fillStyle = (new Color("hsl(90, 100, 60)")).rgb.toString();
           ctx.fillText("君ならできる", cv.width / 2, cv.height / 2 - 144);
@@ -156,7 +156,7 @@ window.onload = function (e) {
         ctx.fillStyle = "rgb(255, 255, 255)";
         ctx.fillRect(0, cv.height / 2 + 152, cv.width, 72);
         if (mouse.click) {
-          openURL("https://twitter.com/intent/tweet?text=FOCUS%0d%0aSCORE%20:%20" + score.toFixed(3) + "&url=http://double-oxygen.net/focus/&hashtags=traP3jam");
+          openURL("https://twitter.com/intent/tweet?text=FOCUS%0d%0aSCORE%20:%20" + score.toFixed(3) + "%0d%0a&url=http://double-oxygen.net/focus/&hashtags=traP3jam");
         }
       }
       ctx.fillStyle = "rgb(85, 172, 238)";
@@ -201,7 +201,7 @@ function isOverTheLimit(bars, goal) {
 function calcScore(bars, goal, canvas, time) {
   let passed = time.stop - time.start,
     rate = (bars.x / goal.x) * (bars.y / goal.y) * ((canvas.width - bars.w - bars.x) / (canvas.width - goal.w - goal.x)) * ((canvas.height - bars.h - bars.y) / (canvas.height - goal.h - goal.y));
-  return 1500000 * rate / passed;
+  return 1600000 * rate / passed;
 }
 
 function openURL(url) {
