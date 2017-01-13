@@ -51,7 +51,8 @@ window.onload = function (e) {
       isInnerRect: function (x, y, w, h) {
         return x < this.x && this.x < (x + w) && y < this.y && this.y < (y + h);
       }
-    };
+    },
+    score = 0;
 
   [cv.width, cv.height] = [window.innerWidth, window.innerHeight];
   [ctx.textAlign, ctx.textBaseline] = ['center', 'alphabetic'];
@@ -127,9 +128,9 @@ window.onload = function (e) {
         timer.stop = new Date();
         key = KEY_PRESS.NONE;
         mode = MODE_SELECT.RESULT;
+        score = calcScore(bars, goal, cv, timer);
       }
     } else if (mode === MODE_SELECT.RESULT) {
-      let score = calcScore(bars, goal, cv, timer);
       ctx.font = "72px sans-serif";
       if (isOverTheLimit(bars, goal)) {
         ctx.fillStyle = (new Color("hsl(0, 100, 50)")).rgb.toString();
